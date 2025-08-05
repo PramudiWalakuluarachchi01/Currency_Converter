@@ -14,7 +14,8 @@ class _CurrencyConverterMaterialPageState
   final TextEditingController textEditingController = TextEditingController();
 
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
+    print('rebuilt');
     final border = OutlineInputBorder(
       borderRadius: BorderRadius.circular(5.0),
       borderSide: const BorderSide(
@@ -39,7 +40,7 @@ class _CurrencyConverterMaterialPageState
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              result.toString(),
+              'INR $result',
               style: const TextStyle(
                 fontSize: 24,
                 color: Colors.white,
@@ -73,10 +74,11 @@ class _CurrencyConverterMaterialPageState
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
                 onPressed: () {
-                  result =
-                      double.parse(textEditingController.text) *
-                      81; // Example conversion rate
-                  build(context); // Rebuild to show the result
+                  setState(() {
+                    result =
+                        double.parse(textEditingController.text) *
+                        81; // Example conversion rate // Rebuild to show the result
+                  });
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.black,
@@ -92,18 +94,6 @@ class _CurrencyConverterMaterialPageState
           ],
         ),
       ),
-    );
-  }
-}
-
-class CurrencyConverterMaterialPagee extends StatelessWidget {
-  const CurrencyConverterMaterialPagee({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Currency Converter Material Pagee')),
-      body: const Center(child: Text('This is a placeholder page.')),
     );
   }
 }
