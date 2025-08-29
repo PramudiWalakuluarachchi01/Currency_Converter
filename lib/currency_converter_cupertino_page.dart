@@ -1,21 +1,20 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-class CurrencyConverterMaterialPage extends StatefulWidget {
-  const CurrencyConverterMaterialPage({super.key});
+class CurrencyConverterCupertinoPage extends StatefulWidget {
+  const CurrencyConverterCupertinoPage({super.key});
 
   @override
-  State<CurrencyConverterMaterialPage> createState() =>
-      _CurrencyConverterMaterialPageState();
+  State<CurrencyConverterCupertinoPage> createState() =>
+      _CurrencyConverterCupertinoPageState();
 }
 
-class _CurrencyConverterMaterialPageState
-    extends State<CurrencyConverterMaterialPage> {
+class _CurrencyConverterCupertinoPageState
+    extends State<CurrencyConverterCupertinoPage> {
   double result = 0;
   final TextEditingController textEditingController = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
-    print('rebuilt');
     final border = OutlineInputBorder(
       borderRadius: BorderRadius.circular(5.0),
       borderSide: const BorderSide(
@@ -42,7 +41,7 @@ class _CurrencyConverterMaterialPageState
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'INR ${result!=0 ?   result.toStringAsFixed(2) : result.toStringAsFixed(0)}',
+                'INR ${result != 0 ? result.toStringAsFixed(2) : result.toStringAsFixed(0)}',
                 style: const TextStyle(
                   fontSize: 24,
                   color: Colors.white,
@@ -67,8 +66,8 @@ class _CurrencyConverterMaterialPageState
                   decimal: true,
                 ),
               ),
-          
-           const SizedBox (height: 10),
+
+              const SizedBox(height: 10),
 
               //button
               ElevatedButton(
